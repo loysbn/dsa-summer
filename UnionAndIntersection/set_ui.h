@@ -1,9 +1,9 @@
 #ifndef Set_UI
 #define Set_UI
-#define MAX 5
+#define MAX 10
 
 typedef struct{
-    char data[MAX];
+    int data[MAX];
     int count;
 }SET;
 

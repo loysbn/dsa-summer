@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 5
+#define MAX 10
 #include "set_ui.h"
 
 void initSet(SET* C){
@@ -12,7 +12,7 @@ SET populateSet(int C[]){
     SET S;
     initSet(&S);
 
-    for(i = 0; i < MAX; i++){
+    for(i = 0; i < 5; i++){
         S.data[S.count] =  C[i];
         S.count++;
     }

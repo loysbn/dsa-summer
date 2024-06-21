@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 5
+#define MAX 10
 #include "set_ui.h"
 
 int main(){
@@ -19,12 +19,10 @@ int main(){
     displaySet(A);
     printf("\nSet B: ");
     displaySet(B);
-// 	printf("\nCount: %d", A.count);
 
     C = unionSet(A, B);
     printf("\nUnion of A and B: ");
     displaySet(C);
-//  printf("\nCount: %d", C.count);
 
 	C = intersection(A, B);
 	printf("\nIntersection of A and B: ");

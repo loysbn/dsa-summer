@@ -30,12 +30,10 @@ int main() {
 	system("cls");
     sortByAT(P, n);
 
-    // Enqueue all processes based on arrival time
     for (i = 0; i < n; i++) {
         enqueue(&q, P[i]);
     }
 
-    // Perform FCFS scheduling
     getET(P, n);
     getWT(P, n);
     getTT(P, n);

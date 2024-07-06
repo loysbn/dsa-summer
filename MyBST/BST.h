@@ -17,11 +17,24 @@ typedef struct node{
 	struct node *left, *right;
 }NodeType, *NodePtr;
 
+typedef struct queueNode {
+    NodePtr treeNode;
+    struct queueNode *next;
+} QueueNode;
+
+typedef struct {
+    QueueNode *front, *rear;
+} Queue;
+
 void initTree(NodePtr* Tree);
 void insert(NodePtr* Tree, Product b);
 void Delete(NodePtr* Tree, Product b);
 void preOrder(NodePtr Tree);
 void inOrder(NodePtr Tree);
 void postOrder(NodePtr Tree);
+
+void enqueue(Queue *q, NodePtr treeNode);
+NodePtr dequeue(Queue *q);
+int isQueueEmpty(Queue *q);
 
 #endif

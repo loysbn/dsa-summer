@@ -32,6 +32,10 @@ int main(int argc, char *argv[]) {
 	postOrder(Tree);
 	printf("\n\n");
 	
+	printf("Breadth-First Search : \n");
+    BFS(Tree);
+    printf("\n\n");
+	
 	Delete(&Tree, b3);
 	printf("===After delete===\n");
 	
@@ -46,6 +50,10 @@ int main(int argc, char *argv[]) {
 	printf("Post-Order: \n");
 	postOrder(Tree);
 	printf("\n\n");
+	
+	printf("Breadth-First Search : \n");
+    BFS(Tree);
+    printf("\n\n");
 	
 	return 0;
 }

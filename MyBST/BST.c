@@ -71,3 +71,63 @@ void postOrder(NodePtr Tree){ // recursive
 		printf("%s ", Tree->item.prodName);
 	}
 }
+
+void BFS(NodePtr T) {
+    Queue q;
+    q.front = q.rear = NULL;
+
+    if (T != NULL) {
+        enqueue(&q, T);
+    }
+
+    while (!isQueueEmpty(&q)) {
+        NodePtr current = dequeue(&q);
+        printf("%s ", current->item.prodName);
+
+        if (current->left != NULL) {
+            enqueue(&q, current->left);
+        }
+        if (current->right != NULL) {
+            enqueue(&q, current->right);
+        }
+    }
+}
+
+void enqueue(Queue *q, NodePtr treeNode) {
+    QueueNode *newNode = (QueueNode *)malloc(sizeof(QueueNode));
+    if (newNode == NULL) {
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+    newNode->treeNode = treeNode;
+    newNode->next = NULL;
+
+    if (q->rear == NULL) {
+        q->front = q->rear = newNode;
+    } else {
+        q->rear->next = newNode;
+        q->rear = newNode;
+    }
+}
+
+NodePtr dequeue(Queue *q) {
+    if (isQueueEmpty(q)) {
+        fprintf(stderr, "Queue is empty\n");
+        exit(EXIT_FAILURE);
+    }
+
+    QueueNode *temp = q->front;
+    NodePtr treeNode = temp->treeNode;
+
+    q->front = q->front->next;
+    if (q->front == NULL) {
+        q->rear = NULL;
+    }
+
+    free(temp);
+    return treeNode;
+}
+
+int isQueueEmpty(Queue *q) {
+    return (q->front == NULL);
+}
